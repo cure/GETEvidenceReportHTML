@@ -1,2 +1,4 @@
-# GETEvidenceReportHTML
-Arvados job to produce an HTML report from the GET-Evidence JSON report
+GET-Evidence HTML Report
+---
+
+Generate an HTML report from an input JSON report.

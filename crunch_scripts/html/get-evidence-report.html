@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!--
+    <script src="js/gunzip.min.js"></script>
+    <script src="js/sql.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/palette.js"></script>
+
+    <script src='js/distance.js'></script>
+    <script src='js/kmeans.js'></script>
+    <script src='js/hcluster.js'></script>
+    -->
+
+    <script src='js/bootstrap-table.js'></script>
+    <script src='js/bootstrap-table-multiple-sort.js'></script>
+    <script src='js/bootstrap-table-filter-control.js'></script>
+
+    <div id="tooltip" class="hidden" style='z-index:100;'> <p><span id="value"></span></p> </div>
+    <script src='js/get-evidence-report-load.js'></script>
+
+  </head>
+
+<body>
+<div class="container">
+
+  <h1>GET-Evidence Report</h1>
+  <p></p>
+
+  <div>
+
+    <!-- Nav tabs -->
+
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#pane-report" aria-controls="pane-report" role="tab" data-toggle="tab">Likely Pathogenic and Rare (&lt;2.5% Allele Freq.)</a></li>
+      <li role="presentation"><a href="#pane-report-all" aria-controls="pane-report-all" role="tab" data-toggle="tab">All</a></li>
+      <li role="presentation"><a href="#pane-insuff" aria-controls="pane-insuff" role="tab" data-toggle="tab">Insufficiently evaluated variants</a></li>
+    </ul>
+
+    <div class='tab-content'>
+
+      <div role="tabpanel" class="tab-pane active" id="pane-report">
+
+
+        <table id="table-report"
+            data-flat="true"
+            data-show-columns="true"
+            data-show-multi-sort="true"
+            data-search="true"
+            data-filter-control="true"
+            >
+
+          <thead>
+            <tr>
+              <th data-field="variant_name" data-sortable="true">Variant</th>
+              <th data-field="clinical_importance" data-filter-control="select" data-sortable="true">Clinical Importance</th>
+              <th data-field="impact" data-sortable="true">Impact</th>
+              <th data-field="zygosity" data-sortable="true">Zygosity</th>
+              <th data-field="ref_allele" data-sortable="true">Ref. Allele</th>
+              <th data-field="alt_allele" data-sortable="true">Alt. Allele(s)</th>
+              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="summary" data-sortable="true">Summary</th>
+            </tr>
+          </thead>
+        </table>
+
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="pane-report-all">
+
+        <table id="table-report-all"
+            data-flat="true"
+            data-show-columns="true"
+            data-show-multi-sort="true"
+            data-search="true"
+            data-filter-control="true"
+            >
+
+          <thead>
+            <tr>
+              <th data-field="variant_name" data-sortable="true">Variant</th>
+              <th data-field="clinical_importance" data-filter-control="select" data-sortable="true">Clinical Importance</th>
+              <th data-field="impact" data-sortable="true">Impact</th>
+              <th data-field="zygosity" data-sortable="true">Zygosity</th>
+              <th data-field="ref_allele" data-sortable="true">Ref. Allele</th>
+              <th data-field="alt_allele" data-sortable="true">Alt. Allele(s)</th>
+              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="summary" data-sortable="true">Summary</th>
+            </tr>
+          </thead>
+        </table>
+
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="pane-insuff">
+
+        <table id="table-insuff"
+            data-flat="true"
+            data-show-columns="true"
+            data-search="true"
+            data-filter-control="true"
+          >
+
+          <thead>
+            <tr>
+              <th data-field="variant_name" data-sortable="true">Variant</th>
+              <th data-field="prioritization" data-sortable="true">Prioritization</th>
+              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="num_articles" data-sortable="true">Num. of articles</th>
+              <!--
+              <th data-field="ref_allele" data-sortable="true">Ref. Alleles</th>
+              <th data-field="alt_alleles" data-sortable="true">Alt. Alleles</th>
+              -->
+              <th data-field="zygosity" data-sortable="true">Zygosity</th>
+              <th data-field="reason" data-sortable="true">Prioritization Reasons</th>
+            </tr>
+          </thead>
+        </table>
+
+      </div>
+      <!-- tabpanel -->
+
+
+    </div>
+    <!-- tab content -->
+
+  </div> <!-- tab outer div -->
+</div> <!-- container -->
+</body></html>
