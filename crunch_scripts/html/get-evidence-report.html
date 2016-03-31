@@ -4,6 +4,7 @@
   <head>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/spinner.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -34,7 +35,9 @@
   <h1>GET-Evidence Report</h1>
   <p></p>
 
-  <div>
+  <div id="spinner" class="spinner spinner-32px spinner-h-center"></div>
+
+  <div id="main" style="display:none;" >
 
     <!-- Nav tabs -->
 
@@ -65,7 +68,7 @@
               <th data-field="zygosity" data-sortable="true">Zygosity</th>
               <th data-field="ref_allele" data-sortable="true">Ref. Allele</th>
               <th data-field="alt_allele" data-sortable="true">Alt. Allele(s)</th>
-              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="allele_freq" data-sortable="true" data-sorter="allele_freq_sorter">Allele Freq.</th>
               <th data-field="summary" data-sortable="true">Summary</th>
             </tr>
           </thead>
@@ -91,7 +94,7 @@
               <th data-field="zygosity" data-sortable="true">Zygosity</th>
               <th data-field="ref_allele" data-sortable="true">Ref. Allele</th>
               <th data-field="alt_allele" data-sortable="true">Alt. Allele(s)</th>
-              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="allele_freq" data-sortable="true" data-sorter="allele_freq_sorter">Allele Freq.</th>
               <th data-field="summary" data-sortable="true">Summary</th>
             </tr>
           </thead>
@@ -112,7 +115,7 @@
             <tr>
               <th data-field="variant_name" data-sortable="true">Variant</th>
               <th data-field="prioritization" data-sortable="true">Prioritization</th>
-              <th data-field="allele_freq" data-sortable="true">Allele Freq.</th>
+              <th data-field="allele_freq" data-sortable="true" data-sorter="allele_freq_sorter">Allele Freq.</th>
               <th data-field="num_articles" data-sortable="true">Num. of articles</th>
               <!--
               <th data-field="ref_allele" data-sortable="true">Ref. Alleles</th>

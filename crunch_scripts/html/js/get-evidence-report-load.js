@@ -178,6 +178,59 @@ function populate_tables(variant_list) {
 
 }
 
+function allele_freq_sorter(a,b) {
+
+  val_a = 1.0;
+  val_b = 1.0;
+
+  if ((a == "Unknown") || (a == "unknown") || (a == "Unk") || (a == "unk")) {
+
+    // Force 'unknown' allele frequenc to be above maximum (1.0)
+    //
+    val_a = 1.125;
+
+  } else {
+    var a_ratio = a.split(" ")[0].split("/");
+    var a_num = parseFloat(a_ratio[0]);
+    var a_den = parseFloat(a_ratio[1]);
+    if (a_den > 0) { val_a = a_num / a_den; }
+
+    // clamp
+    //
+    if (val_a>1.0) { val_a = 1.0; }
+    if (val_a<0.0) { val_a = 0.0; }
+
+  }
+  if ((b == "Unknown") || (b == "unknown") || (b == "Unk") || (b == "unk")) {
+
+    // Force 'unknown' allele frequenc to be above maximum (1.0)
+    //
+    val_b = 1.125;
+
+  } else {
+    var b_ratio = b.split(" ")[0].split("/");
+    var b_num = parseFloat(b_ratio[0]);
+    var b_den = parseFloat(b_ratio[1]);
+    if (b_den > 0) { val_b = b_num / b_den; }
+
+    // clamp
+    //
+    if (val_b>1.0) { val_b = 1.0; }
+    if (val_b<0.0) { val_b = 0.0; }
+  }
+
+  if (val_a < val_b) { return -1; }
+  if (val_a > val_b) { return  1; }
+  return 0;
+}
+
+function remove_spinner() {
+
+  $("#spinner").css("display", "none");
+  $("#main").css("display", "inline");
+
+}
+
 $(document).ready( function() {
   data_url = "get-evidence.json";
 
@@ -204,6 +257,8 @@ $(document).ready( function() {
       }
 
       populate_tables(variant_list);
+
+      remove_spinner();
 
     },
     error: function(e) {
