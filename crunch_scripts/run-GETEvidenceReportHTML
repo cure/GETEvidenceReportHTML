@@ -18,5 +18,14 @@ cp -R $CRUNCH_SRC/crunch_scripts/html/* .
 #cp -R $icol/out-data/get-evidence.json .
 cp -R $icol/out-data/* .
 
+# Workbench sort files by most recently used?
+# Update more relevant files to have them
+# show up at the top.
+touch -c get-ev_genes.json
+touch -c ns.gff.gz
+touch -c get-evidence.json
+touch -c get-evidence-report.html
+
+
 arv-dax task finish
 exit 0
