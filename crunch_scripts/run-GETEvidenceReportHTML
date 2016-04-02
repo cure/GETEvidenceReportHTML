@@ -11,6 +11,7 @@ mntdir=`arv-dax keep`
 jobparam=`arv-dax script_parameters`
 
 icol=$mntdir/`echo "$jobparam" | jq -r '.INPUT_COLLECTION'`
+REPORTID=`echo "$jobparam" | jq -r '.REPORT_ID'`
 
 echo ">>>>>>>>>>>>>>>>>>>>> COPYING $icol/get-evidence.json to ., $CRUNCH_SRC/crunch-scripts/html ."
 
