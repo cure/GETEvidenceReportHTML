@@ -32,7 +32,7 @@
 <body>
 <div class="container">
 
-  <h1>GET-Evidence Report</h1>
+  <h1>GET-Evidence Report %%REPORT_ID%%</h1>
   <p></p>
 
   <div id="spinner" class="spinner spinner-32px spinner-h-center"></div>
